@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="nexGradient" x1="80" y1="80" x2="430" y2="430" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00BFFF"/>
+      <stop offset="0.55" stop-color="#315BFF"/>
+      <stop offset="1" stop-color="#8B45F5"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#111ED6"/>
+  <path d="M120 112
+           C120 92 145 80 160 94
+           L372 292
+           C389 308 389 335 372 351
+           L326 394
+           C310 409 285 408 270 394
+           L120 254 Z"
+        fill="url(#nexGradient)"/>
+  <path d="M392 112
+           C392 92 367 80 352 94
+           L306 137
+           L306 394
+           C306 414 329 426 345 413
+           L392 375 Z"
+        fill="url(#nexGradient)"/>
+</svg>
