@@ -36,7 +36,7 @@ npm run preview
 
 The build was verified with `npm run build`, and `npm audit` reported no known vulnerabilities at the time of review.
 
-Deploy the generated `dist/` directory to a static host configured to serve `index.html` for application routes such as `/login` and `/products/1`. Configure the production `VITE_API_BASE_URL` at build time and allow the deployed origin in the API's CORS policy. Serve the site over HTTPS.
+Deploy the generated `dist/` directory to a static host configured to serve `index.html` for application routes such as `/login` and `/products/1`. The included `vercel.json` provides this fallback for Vercel deployments. Configure the production `VITE_API_BASE_URL` at build time and allow the deployed origin in the API's CORS policy. Serve the site over HTTPS.
 
 ## Demo API limits
 

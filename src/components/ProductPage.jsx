@@ -64,7 +64,6 @@ export default function ProductPage({ user, onLogout }) {
   const [searchText, setSearchText] = useState(query.search)
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
-  const [apiTotal, setApiTotal] = useState(0)
   const [overlay, setOverlay] = useState(readOverlay)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -89,7 +88,7 @@ export default function ProductPage({ user, onLogout }) {
     const id = ++requestId.current
     setLoading(true); setError('')
     getProducts(query).then((result) => {
-      if (id === requestId.current) { setProducts(result.products); setApiTotal(result.total) }
+      if (id === requestId.current) setProducts(result.products)
     })
       .catch((e) => { if (id === requestId.current) setError(e.message || 'Could not load products.') })
       .finally(() => { if (id === requestId.current) setLoading(false) })
@@ -104,17 +103,13 @@ export default function ProductPage({ user, onLogout }) {
     const matchingCreated = overlay.created
       .map((product) => ({ ...product, ...(overlay.updated[product.id] || {}) }))
       .filter(matchesFilters)
-    if (query.page === 1) for (const product of matchingCreated) byId.set(product.id, product)
+    for (const product of matchingCreated) byId.set(product.id, product)
     const deletedIds = new Set([...(overlay.deleted || []), ...(overlay.deletedApiIds || [])].map(String))
-    return [...byId.values()].filter((product) => !deletedIds.has(String(product.id)))
-  }, [products, overlay, query.page, query.search, query.category])
-  const search = query.search.trim().toLowerCase()
-  const matchingCreatedCount = overlay.created.filter((product) => {
-    const current = { ...product, ...(overlay.updated[product.id] || {}) }
-    return (!query.category || current.category === query.category)
-      && (!search || current.title?.toLowerCase().includes(search) || current.description?.toLowerCase().includes(search))
-  }).length
-  const total = Math.max(0, apiTotal + matchingCreatedCount - overlay.deleted.filter((id) => !String(id).startsWith('local-')).length)
+    return [...byId.values()]
+      .filter(matchesFilters)
+      .filter((product) => !deletedIds.has(String(product.id)) && !deletedIds.has(String(product._apiId)))
+  }, [products, overlay, query.search, query.category])
+  const total = allProducts.length
   const pages = Math.max(1, Math.ceil(total / query.pageSize))
   const page = Math.min(query.page, pages)
   const visible = allProducts.slice((page - 1) * query.pageSize, page * query.pageSize)
