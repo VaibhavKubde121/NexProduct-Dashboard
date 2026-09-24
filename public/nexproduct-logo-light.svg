@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">NexProduct logo</title>
+  <desc id="desc">NexProduct wordmark with a gradient N symbol, designed for dark backgrounds</desc>
+  <defs>
+    <linearGradient id="g" x1="80" y1="40" x2="300" y2="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00BFFF"/>
+      <stop offset="0.55" stop-color="#315BFF"/>
+      <stop offset="1" stop-color="#8B45F5"/>
+    </linearGradient>
+  </defs>
+  <rect x="25" y="25" width="250" height="250" rx="55" fill="#111ED6"/>
+  <path d="M85 75 C85 58 106 48 120 60 L235 168 C250 182 250 204 235 218 L210 242 C196 255 175 254 162 242 L85 170 Z" fill="url(#g)"/>
+  <path d="M225 75 C225 58 204 48 190 60 L165 84 L165 242 C165 259 184 269 198 258 L225 236 Z" fill="url(#g)"/>
+  <text x="325" y="195" font-family="Arial, Helvetica, sans-serif" font-size="142" font-weight="700" letter-spacing="-5" fill="#FFFFFF">Nex<tspan fill="#7890FF">Product</tspan></text>
+</svg>

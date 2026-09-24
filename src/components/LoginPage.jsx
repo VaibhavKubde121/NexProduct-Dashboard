@@ -25,7 +25,7 @@ export default function LoginPage({ onLogin }) {
   return (
     <main className="login-shell">
       <div className="login-art" aria-hidden="true"><div className="art-orbit orbit-one" /><div className="art-orbit orbit-two" />
-        <div className="art-copy"><div className="art-brand"><img className="art-logo" src="/nexproduct-logo.svg" alt="NexProduct" /></div><h2>Make room<br />for better work.</h2><p>Your products, clearly in view.</p></div>
+        <div className="art-copy"><div className="art-brand"><img className="art-logo" src="/nexproduct-logo-light.svg" alt="NexProduct" /></div><h2>Make room<br />for better work.</h2><p>Your products, clearly in view.</p></div>
         <div className="art-card"><div className="art-card-top"><span>OVERVIEW</span><span className="live-dot">● LIVE</span></div><div className="art-bars">{Array.from({ length: 12 }, (_, i) => <i key={i} />)}</div><div className="art-card-bottom"><span>Monthly revenue</span><strong>$24,680</strong></div></div>
       </div>
       <section className="login-panel"><form className="login-form" onSubmit={submit}>
